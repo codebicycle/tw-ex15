@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>tw-ex15</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  body {
+      color: #333;
+  }
+  svg { 
+    display: block;
+    margin-bottom: 3px;
+  }
+  rect {  
+    fill: blue;
+    fill-opacity: 0.1;  
+  }
+  text {
+    font-size: 3em;
+    fill: steelblue;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  #info>li {
+    display: inline-table;
+    margin-right: 2.5em;
+  }
+  span.vote {
+    font-size: 3em;
+    margin-right: .1em;
+    color: steelblue;
+  }
+</style>
+
+</head>
+<body>
+
+<section>
+  {{#votes}}
+  
+   <svg width="{{#count}} {{scale}} {{/count}}" height="50">
+     <text x="5" y="45">{{vote}}</text>
+     <rect width="{{#count}} {{scale}} {{/count}}" height="50" />
+   </svg>
+  
+   {{/votes}}
+</section>
+
+<ul id="info">
+  {{#votes}}
+    <li>
+      <span class="vote">{{vote}}</span><span>({{count}} votes)</span>
+      <ul>
+        {{#last_voters}}
+        <li>{{.}}</li>
+        {{/last_voters}}
+      </ul>
+    </li>
+  {{/votes}}
+</ul>
+
+
+</body>
+</html>
